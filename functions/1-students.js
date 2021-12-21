@@ -67,8 +67,8 @@ exports.handler = async (event, context, cb) => {
         contact,
         adminMessage,
         lessonRequest,
+        message,
         lessonDetails: {
-          message,
           subject,
           level,
           online,
