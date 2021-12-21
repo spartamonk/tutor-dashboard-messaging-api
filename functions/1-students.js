@@ -55,6 +55,7 @@ exports.handler = async (event, context, cb) => {
         tutorAddress,
         address,
         postcode,
+        statusColor
       } = i.fields
       const imageUrl = image[0].url
 
@@ -80,6 +81,7 @@ exports.handler = async (event, context, cb) => {
           tutorAddress,
           address,
           postcode,
+          statusColor,
         },
       }
     })
