@@ -6,7 +6,6 @@ const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .table('students')
 
 exports.handler = async (event, context, cb) => {
- 
   const { id } = event.queryStringParameters
   if (id) {
     try {
@@ -43,6 +42,7 @@ exports.handler = async (event, context, cb) => {
         lessonRequest,
         message,
         adminMessage,
+        adminMessageResolved,
         subject,
         level,
         contact,
@@ -55,7 +55,10 @@ exports.handler = async (event, context, cb) => {
         tutorAddress,
         address,
         postcode,
-        statusColor
+        statusColor,
+        notification1,
+        notification2,
+        weekly,
       } = i.fields
       const imageUrl = image[0].url
 
@@ -67,6 +70,7 @@ exports.handler = async (event, context, cb) => {
         date,
         contact,
         adminMessage,
+        adminMessageResolved,
         lessonRequest,
         message,
         lessonDetails: {
@@ -82,7 +86,9 @@ exports.handler = async (event, context, cb) => {
           address,
           postcode,
           statusColor,
+          weekly
         },
+        initialNotifications: [notification1, notification2],
       }
     })
     return {
@@ -97,5 +103,4 @@ exports.handler = async (event, context, cb) => {
       body: 'Server error',
     }
   }
- 
 }
