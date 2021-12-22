@@ -61,6 +61,7 @@ exports.handler = async (event, context, cb) => {
         notification1,
         notification2,
         weekly,
+        requestMessage,
       } = i.fields
       const imageUrl = image[0].url
       return {
@@ -87,7 +88,8 @@ exports.handler = async (event, context, cb) => {
           address,
           postcode,
           statusColor,
-          weekly
+          weekly,
+          requestMessage,
         },
         initialNotifications: [notification1, notification2],
       }
