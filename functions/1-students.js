@@ -6,10 +6,12 @@ const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .table('students')
 
 exports.handler = async (event, context, cb) => {
-  const { id } = event.queryStringParameters
+  const { id } = event.multiValueQueryStringParameters
   if (id) {
     try {
       const student = await airtable.retrieve(id)
+     
+
       if (student.error) {
         return {
           headers: { 'Access-Control-Allow-Origin': '*' },
@@ -61,7 +63,6 @@ exports.handler = async (event, context, cb) => {
         weekly,
       } = i.fields
       const imageUrl = image[0].url
-
       return {
         id,
         firstName,
