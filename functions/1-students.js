@@ -66,7 +66,15 @@ exports.handler = async (event, context, cb) => {
         unread,
         archived,
         requestAction1,
+        requestAction1Color,
+        requestAction1BgColor,
+        requestAction1BorderColor,
+        requestAction1ClassName,
         requestAction2,
+        requestAction2Color,
+        requestAction2BgColor,
+        requestAction2BorderColor,
+        requestAction2ClassName,
       } = i.fields
       const imageUrl = image[0].url
       return {
@@ -98,8 +106,22 @@ exports.handler = async (event, context, cb) => {
           statusColor,
           weekly,
           requestMessage,
-          requestAction1,
-          requestAction2,
+          requestActions: [
+            {
+              requestAction1,
+              requestAction1Color,
+              requestAction1BgColor,
+              requestAction1BorderColor,
+              requestAction1ClassName,
+            },
+            {
+              requestAction2,
+              requestAction2Color,
+              requestAction2BgColor,
+              requestAction2BorderColor,
+              requestAction2ClassName,
+            },
+          ],
         },
         initialNotifications: [notification1, notification2],
       }
