@@ -65,6 +65,8 @@ exports.handler = async (event, context, cb) => {
         starred,
         unread,
         archived,
+        requestAction1,
+        requestAction2,
       } = i.fields
       const imageUrl = image[0].url
       return {
@@ -96,6 +98,8 @@ exports.handler = async (event, context, cb) => {
           statusColor,
           weekly,
           requestMessage,
+          requestAction1,
+          requestAction2,
         },
         initialNotifications: [notification1, notification2],
       }
