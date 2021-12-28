@@ -75,6 +75,7 @@ exports.handler = async (event, context, cb) => {
         requestAction2BgColor,
         requestAction2BorderColor,
         requestAction2ClassName,
+        adminCaseResolveMessage,
       } = i.fields
       const imageUrl = image[0].url
       return {
@@ -86,6 +87,7 @@ exports.handler = async (event, context, cb) => {
         contact,
         adminMessage,
         adminMessageResolved,
+        adminCaseResolveMessage,
         lessonRequest,
         message,
         starred,
