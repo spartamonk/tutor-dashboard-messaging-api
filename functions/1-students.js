@@ -42,6 +42,7 @@ exports.handler = async (event, context, cb) => {
         image,
         date,
         lessonRequest,
+        adminMessageSummary,
         message,
         adminMessage,
         adminMessageResolved,
@@ -93,6 +94,7 @@ exports.handler = async (event, context, cb) => {
         starred,
         unread,
         archived,
+        adminMessageSummary,
         lessonDetails: {
           subject,
           level,
