@@ -144,11 +144,9 @@ try {
   }
 }
  }
-  if(method === 'PUT') {
-    
+  if(method === 'POST') {
     try {
       const { id, unread } = JSON.parse(event.body);
-      
       const fields ={unread: false}
       const item = await airtable.update(id, {fields});
       if(item.error) {
