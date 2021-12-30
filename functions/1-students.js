@@ -148,13 +148,7 @@ try {
     
     try {
       const { id, unread } = JSON.parse(event.body);
-      console.log(id, unread);
-      if(!id || !unread) {
-        return {
-          statusCode: 400,
-          body: 'Please pass id and unread values'
-        }
-      }
+      
       const fields ={unread: false}
       const item = await airtable.update(id, {fields});
       if(item.error) {
