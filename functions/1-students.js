@@ -147,6 +147,13 @@ try {
   if(method === 'PUT') {
     try {
       const { id, unread } = JSON.parse(event.body);
+      if(!id || !unread) {
+        return {
+          headers: { 'Access-Control-Allow-Origin': '*' },
+          statusCode: 400,
+          body: 'Please pass id and unread values'
+        }
+      }
       const fields ={unread: false}
       const item = await airtable.update(id, {fields});
       if(item.error) {
