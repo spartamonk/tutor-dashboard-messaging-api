@@ -144,7 +144,7 @@ try {
   }
 }
  }
-  if(method === 'POST') {
+  if(method === 'PUT') {
     try {
       const { id, unread } = JSON.parse(event.body);
       const fields ={unread: false}
