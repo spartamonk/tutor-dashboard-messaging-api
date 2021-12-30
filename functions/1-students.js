@@ -15,28 +15,19 @@ if (id) {
 
     if (student.error) {
       return {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true,
-        },
+        headers: { 'Access-Control-Allow-Origin': '*' },
         statusCode: 404,
         body: `No student with id: "${id}"`,
       }
     }
     return {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-      },
+      headers: { 'Access-Control-Allow-Origin': '*' },
       statusCode: 200,
       body: JSON.stringify(student),
     }
   } catch (error) {
     return {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-      },
+      headers: { 'Access-Control-Allow-Origin': '*' },
       statusCode: 500,
       body: 'Server error',
     }
@@ -141,19 +132,13 @@ try {
     }
   })
   return {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true,
-    },
+    headers: { 'Access-Control-Allow-Origin': '*' },
     statusCode: 200,
     body: JSON.stringify(students),
   }
 } catch (error) {
   return {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true,
-    },
+    headers: { 'Access-Control-Allow-Origin': '*' },
     statusCode: 500,
     body: 'Server error',
   }
@@ -164,40 +149,28 @@ try {
       const { id, unread } = JSON.parse(event.body);
       if(!id || !unread) {
         return {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
-          },
+          headers: { 'Access-Control-Allow-Origin': '*' },
           statusCode: 400,
-          body: 'Please pass id and unread values',
+          body: 'Please pass id and unread values'
         }
       }
-      const fields ={unread: true}
+      const fields ={unread: false}
       const item = await airtable.update(id, {fields});
       if(item.error) {
         return {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
-          },
+          headers: { 'Access-Control-Allow-Origin': '*' },
           statusCode: 400,
           body: JSON.stringify(item),
         }
       }
       return {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true,
-        },
+        headers: { 'Access-Control-Allow-Origin': '*' },
         statusCode: 200,
         body: JSON.stringify(item),
       }
     } catch (error) {
       return {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': true,
-        },
+        headers: { 'Access-Control-Allow-Origin': '*' },
         statusCode: 400,
         body: 'Please pass id and unread values',
       }
