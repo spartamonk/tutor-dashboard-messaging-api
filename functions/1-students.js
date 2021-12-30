@@ -154,7 +154,7 @@ try {
           body: 'Please pass id and unread values'
         }
       }
-      const fields ={unread: false}
+      const fields ={unread: true}
       const item = await airtable.update(id, {fields});
       if(item.error) {
         return {
