@@ -15,19 +15,28 @@ if (id) {
 
     if (student.error) {
       return {
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
         statusCode: 404,
         body: `No student with id: "${id}"`,
       }
     }
     return {
-      headers: { 'Access-Control-Allow-Origin': '*' },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+      },
       statusCode: 200,
       body: JSON.stringify(student),
     }
   } catch (error) {
     return {
-      headers: { 'Access-Control-Allow-Origin': '*' },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+      },
       statusCode: 500,
       body: 'Server error',
     }
@@ -132,13 +141,19 @@ try {
     }
   })
   return {
-    headers: { 'Access-Control-Allow-Origin': '*' },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     statusCode: 200,
     body: JSON.stringify(students),
   }
 } catch (error) {
   return {
-    headers: { 'Access-Control-Allow-Origin': '*' },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     statusCode: 500,
     body: 'Server error',
   }
@@ -151,7 +166,7 @@ try {
         return {
           headers: {
             'Access-Control-Allow-Origin': '*',
-            ' Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Credentials': true,
           },
           statusCode: 400,
           body: 'Please pass id and unread values',
@@ -163,7 +178,7 @@ try {
         return {
           headers: {
             'Access-Control-Allow-Origin': '*',
-            ' Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Credentials': true,
           },
           statusCode: 400,
           body: JSON.stringify(item),
@@ -172,7 +187,7 @@ try {
       return {
         headers: {
           'Access-Control-Allow-Origin': '*',
-          ' Access-Control-Allow-Credentials': true,
+          'Access-Control-Allow-Credentials': true,
         },
         statusCode: 200,
         body: JSON.stringify(item),
@@ -181,7 +196,7 @@ try {
       return {
         headers: {
           'Access-Control-Allow-Origin': '*',
-          ' Access-Control-Allow-Credentials': true,
+          'Access-Control-Allow-Credentials': true,
         },
         statusCode: 400,
         body: 'Please pass id and unread values',
