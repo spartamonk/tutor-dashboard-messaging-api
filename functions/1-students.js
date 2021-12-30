@@ -149,28 +149,40 @@ try {
       const { id, unread } = JSON.parse(event.body);
       if(!id || !unread) {
         return {
-          headers: { 'Access-Control-Allow-Origin': '*' },
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            ' Access-Control-Allow-Credentials': true,
+          },
           statusCode: 400,
-          body: 'Please pass id and unread values'
+          body: 'Please pass id and unread values',
         }
       }
       const fields ={unread: true}
       const item = await airtable.update(id, {fields});
       if(item.error) {
         return {
-          headers: { 'Access-Control-Allow-Origin': '*' },
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            ' Access-Control-Allow-Credentials': true,
+          },
           statusCode: 400,
           body: JSON.stringify(item),
         }
       }
       return {
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          ' Access-Control-Allow-Credentials': true,
+        },
         statusCode: 200,
         body: JSON.stringify(item),
       }
     } catch (error) {
       return {
-        headers: { 'Access-Control-Allow-Origin': '*' },
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          ' Access-Control-Allow-Credentials': true,
+        },
         statusCode: 400,
         body: 'Please pass id and unread values',
       }
