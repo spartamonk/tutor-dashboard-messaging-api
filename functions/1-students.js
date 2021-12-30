@@ -151,18 +151,21 @@ try {
       const item = await airtable.update(id, {fields});
       if(item.error) {
         return {
+          headers: { 'Access-Control-Allow-Origin': '*' },
           statusCode: 400,
-          body: JSON.stringify(item)
+          body: JSON.stringify(item),
         }
       }
       return {
+        headers: { 'Access-Control-Allow-Origin': '*' },
         statusCode: 200,
         body: JSON.stringify(item),
       }
     } catch (error) {
       return {
+        headers: { 'Access-Control-Allow-Origin': '*' },
         statusCode: 400,
-        body: "Please pass id and unread values"
+        body: 'Please pass id and unread values',
       }
     }
   }
