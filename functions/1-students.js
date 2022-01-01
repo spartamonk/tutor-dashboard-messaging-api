@@ -9,6 +9,7 @@ exports.handler = async (event, context, cb) => {
   const { id } = event.multiValueQueryStringParameters
   const method = event.httpMethod;
  if(method === 'GET') {
+
 if (id) {
   try {
     const student = await airtable.retrieve(id)
@@ -145,6 +146,7 @@ try {
 }
  }
   if(method === 'PUT') {
+    console.log('hello');
     try {
       const { id, unread } = JSON.parse(event.body);
       if(!id || !unread) {
@@ -154,7 +156,7 @@ try {
           body: 'Please pass id and unread values'
         }
       }
-      const fields ={unread: false}
+      const fields ={unread: 0}
       const item = await airtable.update(id, {fields});
       if(item.error) {
         return {
