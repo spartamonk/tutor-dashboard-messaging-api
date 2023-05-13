@@ -97,10 +97,7 @@ try {
       unread,
       archived,
       adminMessageSummary,
-      requestAccepted,
-      requestAcceptedMessage,
-      isTutorReplied,
-      tutorReplyMessage,
+      
       lessonDetails: {
         subject,
         level,

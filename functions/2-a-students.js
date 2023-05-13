@@ -52,10 +52,6 @@ exports.handler = async (event, context, cb) => {
          contact,
          adminMessage,
          lessonRequest,
-         requestAccepted,
-         requestAcceptedMessage,
-         isTutorReplied,
-         tutorReplyMessage,
          lessonDetails: {
            message,
            subject,
