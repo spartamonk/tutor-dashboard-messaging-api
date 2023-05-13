@@ -97,6 +97,10 @@ try {
       unread,
       archived,
       adminMessageSummary,
+      requestAccepted,
+      requestAcceptedMessage,
+      isTutorReplied,
+      tutorReplyMessage,
       lessonDetails: {
         subject,
         level,
@@ -112,6 +116,7 @@ try {
         statusColor,
         weekly,
         requestMessage,
+
         requestActions: [
           {
             requestAction1,
