@@ -9,7 +9,7 @@ exports.handler = async (event, context, cb) => {
   const { id } = event.multiValueQueryStringParameters
   const method = event.httpMethod;
  if(method === 'GET') {
-
+   console.log('hello world');
 if (id) {
   try {
     const student = await airtable.retrieve(id)
@@ -146,7 +146,7 @@ try {
 }
  }
   if(method === 'PUT') {
-    console.log('hello');
+    
     try {
       const { id, unread } = JSON.parse(event.body);
       if(!id || !unread) {
